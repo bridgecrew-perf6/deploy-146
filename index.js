@@ -2,6 +2,8 @@ var http = require('http');
 var { exec } = require('child_process');
 
 http.createServer(function (req, res) {
+	//Token to match on CI/CD pipeline settings
+	//Change the token on both side from time to time
 	if(req.url.includes("token=888000")){
 		exec(`bash ${__dirname}/deploy.sh`, (err, stdout, stderr) => {
 			console.log(`bash ${__dirname}/deploy.sh`);
